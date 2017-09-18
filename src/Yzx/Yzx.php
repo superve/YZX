@@ -11,7 +11,8 @@ class Yzx{
 	private $callback = '';
 	private $restful_url = '';
 
-	function __construct(){
+
+	public function __construct(){
 		date_default_timezone_set("PRC");
 		$this->datetime = date('YmdHis');
 		$this->sig = strtoupper(md5($this->accountSid.$this->token.$this->datetime));
