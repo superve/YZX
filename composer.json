@@ -1,0 +1,22 @@
+{
+    "name": "gogery/yzx",
+    "description": "云之讯短信验证接口",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "gogery",
+            "email": "gogery@163.com"
+        }
+    ],
+    "require": {
+         "php": ">=5.3.0"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+    	"psr-4":{
+    		"Yzx\\": "src/Yzx"
+    	}
+    }
+    
+}
