@@ -1,21 +1,40 @@
 <?php
 namespace Yzx;
 
+/**
+ * 示例代码：
+ 	
+ 	$config = [
+		'accountSid' => 'f82sfdsdf815f7985745c5b50b0bb223e8' ,
+		'token' => 'f298b645sfsd748dfa4c349b0a23fb722',
+		'appId' => 'e0406dsdfdsa7b40a28f8d114ec12c932b'
+	];
+	$client = new Yzx($config);
+
+	$phoneNumber = '13672431596'; // 手机号
+	$param = '123'; // 验证码
+	$data = $client->sendRegisterMessage($phoneNumber, $param);
+
+ */
 class Yzx{
 	private $SoftVersion = '2014-06-30';
-	private $accountSid = 'xxxxxxxxxxxxxxxxxxxx'; // 配置为自己的AK
-	private $token = 'xxxxxxxxxxxxxxxxxxxx'; // 配置为自己的SK
-	private $appId = 'xxxxxxxxxxxxxxxxxxxx'; // 配置为自己的应用ID
-
-	private $header = null; // 请求头信息
-	private $callback = ''; // 回调URL
-	private $restful_url = ''; // 请求api地址
+	private $accountSid = ''; // 配置为自己的AK
+	private $token = ''; // 配置为自己的SK
+	private $appId = ''; // 配置为自己的应用ID
+	private $templateId = ''; // 短信模板ID
 
 
-	/**
-	 * 构造函数，主要是用于生产请求地址和签名字符串以及生产请求头信息
-	 */
-	public function __construct(){
+	private $header = null;
+	private $callback = '';
+	private $restful_url = '';
+
+	function __construct($config = ['accountSid' => '', 'token' => '', 'appId' => '']){
+
+		$this->accountSid = $config['accountSid'];
+		$this->token = $config['token'];
+		$this->appId = $config['appId'];
+		$this->templateId = $config['templateId'];
+
 		date_default_timezone_set("PRC");
 		$this->datetime = date('YmdHis');
 		$this->sig = strtoupper(md5($this->accountSid.$this->token.$this->datetime));
@@ -73,19 +92,12 @@ class Yzx{
 		$data = [
 			'templateSMS'=>[
 				'appId'=> $this->appId,
-				'templateId'=> '152358',
+				'templateId'=> $this->templateId,
 				'to'=> $phoneNumber,
 				'param'=> $param,
 			],
 		];
 		return $this->json_curl($this->restful_url, $data);
 
-	}
-
-	
+	}	
 }
-
-$client = new Yzx();
-$phoneNumber = '18620628729';
-$param = '12';
-var_dump( $client->sendRegisterMessage($phoneNumber, $param));
