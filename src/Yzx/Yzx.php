@@ -12,6 +12,9 @@ class Yzx{
 	private $restful_url = '';
 
 
+	/**
+	 * 构造函数，主要是用于生产请求地址和签名字符串以及生产请求头信息
+	 */
 	public function __construct(){
 		date_default_timezone_set("PRC");
 		$this->datetime = date('YmdHis');
