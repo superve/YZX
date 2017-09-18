@@ -16,6 +16,7 @@ namespace Yzx;
 	$data = $client->sendRegisterMessage($phoneNumber, $param);
 
  */
+
 class Yzx{
 	private $SoftVersion = '2014-06-30';
 	private $accountSid = ''; // 配置为自己的AK
