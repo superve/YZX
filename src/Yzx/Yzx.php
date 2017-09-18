@@ -7,9 +7,9 @@ class Yzx{
 	private $token = 'xxxxxxxxxxxxxxxxxxxx'; // 配置为自己的SK
 	private $appId = 'xxxxxxxxxxxxxxxxxxxx'; // 配置为自己的应用ID
 
-	private $header = null;
-	private $callback = '';
-	private $restful_url = '';
+	private $header = null; // 请求头信息
+	private $callback = ''; // 回调URL
+	private $restful_url = ''; // 请求api地址
 
 
 	/**
