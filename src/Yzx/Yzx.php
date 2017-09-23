@@ -2,7 +2,7 @@
 namespace Yzx;
 
 /**
- * 示例代码：
+ * 示例代码：演示云之讯的使用！
  	
  	$config = [
 		'accountSid' => 'f82sfdsdf815f7985745c5b50b0bb223e8' ,
