@@ -7,7 +7,8 @@ namespace Yzx;
  	$config = [
 		'accountSid' => 'f82sfdsdf815f7985745c5b50b0bb223e8' ,
 		'token' => 'f298b645sfsd748dfa4c349b0a23fb722',
-		'appId' => 'e0406dsdfdsa7b40a28f8d114ec12c932b'
+		'appId' => 'e0406dsdfdsa7b40a28f8d114ec12c932b',
+		'templateId' => '2e3123',
 	];
 	$client = new Yzx($config);
 
